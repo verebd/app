@@ -1,7 +1,9 @@
 {
   "name": "app",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  },
   "scripts": {
     "test": "gulp test"
   },

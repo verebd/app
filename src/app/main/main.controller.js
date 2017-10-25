@@ -1,7 +1,7 @@
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($log) {
     'ngInject';
-
+    $log.debug('MainCtrl');
   }
 
 }

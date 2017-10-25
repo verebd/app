@@ -1,33 +1,16 @@
 'use strict';
 
-const MongoClient = require('mongodb').MongoClient;
-const TaskDAO = require('./db/tasksDAO');
-const express = require('express');
-const app = express();
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('db.json')
+const middlewares = jsonServer.defaults()
 
-const url = 'mongodb://localhost:27017/jstestapp';
-let mongodb;
-
-MongoClient.connect(url, {
-  poolSize: 10
-}, function (err, db) {
-  mongodb = db;
-
-  TaskDAO.createTask(db, 'open', 'easy', 'topic6', 'lalala', ['a', 'b', 'c', 'd'], 'd');
-  TaskDAO.updateTask(db, 'q1', 'topic', 'trial3');
-  db.close();
-
-
-  // taskDb.find(function(err, dbs) {
-  //   test.equal(null, err);
-  //   test.ok(dbs.length > 0);
-  //   db.close();
-  // });
+server.use(middlewares)
+server.use(router)
+server.listen(3000, () => {
+  console.log('JSON Server is running')
 });
 
-app.get('/', (req, res) => {
-
-});
 
 
 

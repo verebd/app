@@ -1,0 +1,18 @@
+@mixin fonts($size, $style: normal) {
+  font-family: Verdana, sans-serif;
+  font-size: $size;
+  font-weight: bold;
+  font-style: $style;
+}
+
+header {
+  background-color: #8FBC8F;
+  .productName {
+    @include fonts(30, italic);
+  }
+  .dashboard,
+  .welcome {
+    @include fonts(25);
+    display: inline;
+  }
+}

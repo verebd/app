@@ -1,14 +1,17 @@
 @mixin fonts($size, $style: normal) {
-  font-family: Verdana, sans-serif;
+  font-family: Verdana;
   font-size: $size;
   font-weight: bold;
   font-style: $style;
+  color: white;
 }
 
 header {
-  background-color: #8FBC8F;
+  background-color: #9ffbdc;
+  height: 50px;
   .productName {
     @include fonts(30, italic);
+    display: inline;
   }
   .dashboard,
   .welcome {

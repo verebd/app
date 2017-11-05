@@ -1,15 +1,7 @@
-a {
-  color: black;
-}
-
-a:hover, a:focus {
-  color: greenyellow;
-}
-
 nav {
   background-color: #665c5a;
   position: absolute;
-  width: 130px;
+  width: 110px;
   display: block;
   box-sizing: border-box;
   height: 100%;
@@ -33,6 +25,15 @@ li {
   color: #e7efeb;
   position: relative;
 }
+
+a {
+  color: black;
+}
+
+a:hover, a:focus {
+  color: greenyellow;
+}
+
 span {
   color: #e7efeb;
   text-align: center;

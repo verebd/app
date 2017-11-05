@@ -1,0 +1,24 @@
+.grid-wrapper {
+  display: grid;
+  position: relative;
+  width: 70%;
+  background-color: #00b3ee;
+  margin: auto;
+  top: 80px;
+}
+
+.grid-header {
+  height: 30px;
+  background-color: #d1d5d4;
+}
+
+.grid-row {
+  height: 40px;
+  border-bottom: 1px solid #cfeae7;
+  &:nth-child(odd) {
+    background-color: white;
+  }
+  &:nth-child(even) {
+    background-color: #d8f1ee;
+  }
+}

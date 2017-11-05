@@ -4,9 +4,6 @@ export function SidebarDirective() {
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/sidebar/sidebar.html',
-    // scope: {
-    //     creationDate: '='
-    // },
     controller: SidebarController,
     controllerAs: 'sc',
     bindToController: true
@@ -16,11 +13,8 @@ export function SidebarDirective() {
 }
 
 class SidebarController {
-  constructor ($log) {
+  constructor () {
     'ngInject';
 
-    // "this.creationDate" is available by directive option "bindToController: true"
-    // this.relativeDate = moment(this.creationDate).fromNow();
-    $log.debug('SidebarCtrl');
   }
 }

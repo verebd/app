@@ -4,9 +4,6 @@ export function AdminHeaderDirective() {
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/adminheader/adminheader.html',
-    // scope: {
-    //     creationDate: '='
-    // },
     controller: AdminHeaderController,
     controllerAs: 'hc',
     bindToController: true
@@ -16,11 +13,7 @@ export function AdminHeaderDirective() {
 }
 
 class AdminHeaderController {
-  constructor ($log) {
+  constructor () {
     'ngInject';
-
-    // "this.creationDate" is available by directive option "bindToController: true"
-    // this.relativeDate = moment(this.creationDate).fromNow();
-    $log.debug('AdminHeaderCtrl');
   }
 }

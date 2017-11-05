@@ -1,0 +1,19 @@
+<section class="grid-wrapper">
+  <div class="grid-header">
+    <div class="grid-header-item" ng-repeat="item in headerItems">
+      <span>{{item}}</span>
+      <span class="sorting-icon"></span>
+    </div>
+  </div>
+  <div class="grid-row" ng-repeat="task in tasks">
+    <div class="view-icon"></div>
+    <div class="task-property" task-property="task-id">{{taks.id}}</div>
+    <div class="task-property" task-property="task-text">{{taks.text}}</div>
+    <div class="task-property" task-property="task-topic">{{taks.topic}}</div>
+    <div class="task-property" task-property="task-difficulty">{{taks.difficulty}}</div>
+    <div class="task-property" task-property="task-type">{{taks.type}}</div>
+    <div class="delete-icon"></div>
+  </div>
+</section>
+
+

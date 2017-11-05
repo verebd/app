@@ -35,6 +35,7 @@ function browserSyncInit(baseDir, browser) {
    */
   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
+
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
@@ -45,6 +46,14 @@ function browserSyncInit(baseDir, browser) {
 browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
+
+gulp.task('server', function (cb) {
+  exec('../src/app/app.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);

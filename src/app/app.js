@@ -2,14 +2,14 @@
 
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('./app/db/db.json');
+const router = jsonServer.router('./db/db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
-server.use(router);
+server.use('/api', router);
 
-server.get('/tasks', (req, res) => {
-  res.jsonp(req.query);
+server.get('/', (req, res) => {
+  res.sendFile('./index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
 server.listen(3000, () => {
@@ -18,9 +18,7 @@ server.listen(3000, () => {
 
 
 
-// server.get('*', (req, res) => {
-//   res.sendFile('./index.html'); // load the single view file (angular will handle the page changes on the front-end)
-// });
+
 
 // router.render = (req, res) => {
 //   res.jsonp({

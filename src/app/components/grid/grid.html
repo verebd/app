@@ -1,19 +1,22 @@
-<section class="grid-wrapper">
-  <div class="grid-header">
-    <div class="grid-header-item" ng-repeat="item in headerItems">
+<table>
+  <thead>
+  <tr>
+    <th ng-repeat="item in gm.headerItems">
       <span>{{item}}</span>
       <span class="sorting-icon"></span>
-    </div>
-  </div>
-  <div class="grid-row" ng-repeat="task in tasks">
-    <div class="view-icon"></div>
-    <div class="task-property" task-property="task-id">{{taks.id}}</div>
-    <div class="task-property" task-property="task-text">{{taks.text}}</div>
-    <div class="task-property" task-property="task-topic">{{taks.topic}}</div>
-    <div class="task-property" task-property="task-difficulty">{{taks.difficulty}}</div>
-    <div class="task-property" task-property="task-type">{{taks.type}}</div>
-    <div class="delete-icon"></div>
-  </div>
-</section>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="task in gm.tasks">
+    <td class="task-property" task-property="task-id">{{taks.id}}</td>
+    <td class="task-property" task-property="task-text">{{taks.text}}</td>
+    <td class="task-property" task-property="task-topic">{{taks.topic}}</td>
+    <td class="task-property" task-property="task-difficulty">{{taks.difficulty}}</td>
+    <td class="task-property" task-property="task-type">{{taks.type}}</td>
+    <!--<td class="delete-icon"></td>-->
+  </tr>
+  </tbody>
+</table>
 
 

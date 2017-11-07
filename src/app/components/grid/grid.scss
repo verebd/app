@@ -1,5 +1,4 @@
-.grid-wrapper {
-  display: grid;
+table {
   position: relative;
   width: 70%;
   background-color: #00b3ee;
@@ -7,12 +6,12 @@
   top: 80px;
 }
 
-.grid-header {
+th {
   height: 30px;
   background-color: #d1d5d4;
 }
 
-.grid-row {
+tbody tr {
   height: 40px;
   border-bottom: 1px solid #cfeae7;
   &:nth-child(odd) {

@@ -2,15 +2,12 @@
 
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('./db/db.json');
-const middlewares = jsonServer.defaults();
+const router = jsonServer.router('./db.json');
+const middlewares = jsonServer.defaults({static: 'public'});
 
 server.use(middlewares);
 server.use('/api', router);
 
-server.get('/', (req, res) => {
-  res.sendFile('./index.html'); // load the single view file (angular will handle the page changes on the front-end)
-});
 
 server.listen(3000, () => {
   console.log('JSON Server is running')

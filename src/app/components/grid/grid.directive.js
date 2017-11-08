@@ -17,8 +17,8 @@ class GridController {
     'ngInject';
     this.headerItems = ['ID', 'Title', 'Topic', 'Difficulty', 'Type'];
 
-    $http.get('/tasks').success(data => {
-      this.tasks = data.tasks;
+    $http.get('/api/tasks').success(data => {
+      this.tasks = data;
     });
   }
 

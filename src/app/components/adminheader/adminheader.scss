@@ -7,15 +7,18 @@
 }
 
 header {
-  background-color: #9ffbdc;
+  background-color: #8baddc;
   height: 50px;
-  .productName {
-    @include fonts(30, italic);
-    display: inline;
+  margin-left: 110px;
+  .dashboard {
+    @include fonts(25);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
-  .dashboard,
   .welcome {
     @include fonts(25);
     display: inline;
+    float: right;
   }
 }

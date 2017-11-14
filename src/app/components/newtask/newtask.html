@@ -1,0 +1,59 @@
+<div class="new-task">
+  <div class="new-task-header">Create new task</div>
+  <form>
+    <label>
+      Task type
+      <input type="text" list="types" placeholder="Select a task type:"/>
+      <datalist id="types">
+        <option value="Multiple-choice"></option>
+        <option value="Open"></option>
+      </datalist>
+    </label>
+    <label>
+      Topic
+      <input type="text" placeholder="Enter the topic of the task:"/>
+    </label>
+    <label>
+      Difficulty
+      <input type="text" list="levels" placeholder="Select a difficulty level:"/>
+      <datalist id="levels">
+        <option value="Easy"></option>
+        <option value="Medium"></option>
+        <option value="Advanced"></option>
+      </datalist>
+    </label>
+    <label>
+      Question text
+      <input type="text" placeholder="Enter the question text:"/>
+    </label>
+    <div class="options">
+      Options
+      <label>
+        A
+        <input type="text"/>
+      </label>
+      <label>
+        B
+        <input type="text"/>
+      </label>
+      <label>
+        C
+        <input type="text"/>
+      </label>
+      <label>
+        D
+        <input type="text"/>
+      </label>
+    </div>
+    <label>
+      Answer
+      <input type="text" list="answers" placeholder="Select the correct answer:"/>
+      <datalist id="answers">
+        <option value="A"></option>
+        <option value="B"></option>
+        <option value="C"></option>
+        <option value="D"></option>
+      </datalist>
+    </label>
+  </form>
+</div>

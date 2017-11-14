@@ -8,6 +8,8 @@ import { NavbarDirective } from './components/navbar/navbar.directive';
 import { AdminHeaderDirective } from './components/adminheader/adminheader.directive';
 import { SidebarDirective } from './components/sidebar/sidebar.directive';
 import { GridDirective } from './components/grid/grid.directive';
+import { MainContainerDirective } from './components/maincontainer/maincontainer.directive.js';
+import { OperationsDirective } from './components/operations/operations.directive.js';
 
 angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap'])
   .constant('moment', moment)
@@ -18,4 +20,6 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('navbar', NavbarDirective)
   .directive('adminheader', AdminHeaderDirective)
   .directive('sidebar', SidebarDirective)
-  .directive('grid', GridDirective);
+  .directive('grid', GridDirective)
+  .directive('operations', OperationsDirective)
+  .directive('maincontainer', MainContainerDirective);

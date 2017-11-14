@@ -16,5 +16,12 @@ class SidebarController {
   constructor () {
     'ngInject';
 
+    this.selectTab = setTab => {
+      this.tab = setTab;
+    };
+
+    this.isTabSelected = checkTab => {
+      return this.tab === checkTab;
+    };
   }
 }

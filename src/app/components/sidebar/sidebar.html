@@ -1,18 +1,18 @@
 <nav>
   <div class="logo"></div>
     <ul>
-      <li ng-class="{active: sc.isTabSelected(1)}">
-        <a href="#/tasks" ng-click="sc.selectTab(1)">
+      <li ng-class="{active: sc.isTabSelected('tasks')}">
+        <a href ng-click="sc.selectTab('tasks')">
           <span>Tasks</span>
         </a>
       </li>
-      <li ng-class="{active: sc.isTabSelected(2)}">
-        <a href="#/tests" ng-click="sc.selectTab(2)">
+      <li ng-class="{active: sc.isTabSelected('tests')}">
+        <a href ng-click="sc.selectTab('tests')">
           <span>Tests</span>
         </a>
       </li>
-      <li ng-class="{active: sc.isTabSelected(3)}">
-        <a href="#/assessments" ng-click="sc.selectTab(3)">
+      <li ng-class="{active: sc.isTabSelected('assessments')}">
+        <a href ng-click="sc.selectTab('assessments')">
           <span>Assessments</span>
         </a>
       </li>

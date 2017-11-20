@@ -5,20 +5,15 @@
   font-style: $style;
   color: white;
 }
-
 header {
   background-color: #8baddc;
   height: 50px;
   margin-left: 110px;
   .dashboard {
     @include fonts(25);
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     text-align: center;
-  }
-  .welcome {
-    @include fonts(25);
-    display: inline;
-    float: right;
+    position: relative;
+    top: 25%;
   }
 }

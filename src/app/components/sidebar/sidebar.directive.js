@@ -16,6 +16,8 @@ class SidebarController {
   constructor () {
     'ngInject';
 
+    this.tab = 'tasks';
+
     this.selectTab = setTab => {
       this.tab = setTab;
     };

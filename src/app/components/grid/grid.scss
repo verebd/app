@@ -9,6 +9,10 @@ table {
 th {
   height: 30px;
   background-color: #d1d5d4;
+  position: sticky;
+  .header-item {
+    margin-left: 5px;
+  }
 }
 
 tbody tr {
@@ -19,5 +23,8 @@ tbody tr {
   }
   &:nth-child(even) {
     background-color: #d8f1ee;
+  }
+  td {
+    margin-left: 5px;
   }
 }

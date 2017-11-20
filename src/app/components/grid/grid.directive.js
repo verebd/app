@@ -6,7 +6,8 @@ export function GridDirective() {
     templateUrl: 'app/components/grid/grid.html',
     controller: GridController,
     controllerAs: 'gm',
-    bindToController: true
+    bindToController: true,
+    require: '^getData'
   };
 
   return directive;

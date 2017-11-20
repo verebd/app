@@ -18,7 +18,13 @@ class GridController {
     'ngInject';
 
     this.headerItems = dataHandler.getHeaderItems('tasks');
-    this.tasks = dataHandler.getAllData('tasks');
+    // this.tasks = dataHandler.getAllData('tasks');
+    dataHandler.getAllData('tasks').then(tasks => {
+      console.log(tasks.data);
+      console.log('1', tasks[0]);
+      this.tasks = tasks.data;
+    });
+
   }
 
 }

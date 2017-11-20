@@ -10,6 +10,7 @@ import { SidebarDirective } from './components/sidebar/sidebar.directive';
 import { GridDirective } from './components/grid/grid.directive';
 import { MainContainerDirective } from './components/maincontainer/maincontainer.directive.js';
 import { OperationsDirective } from './components/operations/operations.directive.js';
+import {dataHandler} from './services/dataHandler';
 
 angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap'])
   .constant('moment', moment)
@@ -22,4 +23,5 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('sidebar', SidebarDirective)
   .directive('grid', GridDirective)
   .directive('operations', OperationsDirective)
-  .directive('maincontainer', MainContainerDirective);
+  .directive('maincontainer', MainContainerDirective)
+  .service('dataHandler', ['$http', dataHandler]);

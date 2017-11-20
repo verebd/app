@@ -7,19 +7,18 @@ export function GridDirective() {
     controller: GridController,
     controllerAs: 'gm',
     bindToController: true,
-    require: '^getData'
+    require: 'dataHandler'
   };
 
   return directive;
 }
 
 class GridController {
-  constructor ($http, getData) {
+  constructor (dataHandler) {
     'ngInject';
 
-    let table = getData('tasks');
-    this.headerItems = table.headerItems;
-    this.tasks = table['tasks'];
+    this.headerItems = dataHandler.getHeaderItems('tasks');
+    this.tasks = dataHandler.getAllData('tasks');
   }
 
 }

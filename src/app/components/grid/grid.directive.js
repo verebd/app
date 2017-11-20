@@ -13,12 +13,12 @@ export function GridDirective() {
 }
 
 class GridController {
-  constructor ($http, $getData) {
+  constructor ($http, getData) {
     'ngInject';
 
-    let table = $getData(name);
+    let table = getData('tasks');
     this.headerItems = table.headerItems;
-    this[name] = table[name];
+    this.tasks = table['tasks'];
   }
 
 }

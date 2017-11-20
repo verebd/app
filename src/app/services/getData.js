@@ -18,6 +18,7 @@ getData.factory('getData', $http => {
 
   let allData = name => {
     let table = {};
+    console.log(name);
     table.header = getHeaderItems(name);
     $http.get('/api/' + name).success(data => {
       table[name] = data;

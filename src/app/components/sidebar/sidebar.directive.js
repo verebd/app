@@ -13,17 +13,14 @@ export function SidebarDirective() {
 }
 
 class SidebarController {
-  constructor () {
+  constructor($location) {
     'ngInject';
 
-    this.tab = 'tasks';
-
-    this.selectTab = setTab => {
-      this.tab = setTab;
-    };
-
     this.isTabSelected = checkTab => {
-      return this.tab === checkTab;
+      let url = $location.url();
+      let rx = /^\/(.+)$/;
+      let token = url.match(rx);
+      return token[1] === checkTab;
     };
   }
 }

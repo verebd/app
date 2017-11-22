@@ -5,8 +5,10 @@ export function dataHandler($http) {
     switch (name) {
       case 'tasks':
         headerItems = ['ID', 'Title', 'Topic', 'Difficulty', 'Type'];
-      // case 'tests':
-      //
+        break;
+      case 'tests':
+        headerItems = ['ID', 'Test title', 'Task IDs'];
+        break;
       // case 'assessments':
 
     }
@@ -17,5 +19,13 @@ export function dataHandler($http) {
     return $http.get('/api/' + name).success(data => {
       return data;
     });
+  };
+
+  this.getQuestionIDs = test => {
+    let questions = [];
+    test['tasks'].forEach(task => {
+      questions.push(task['id']);
+    });
+    return questions;
   };
 }

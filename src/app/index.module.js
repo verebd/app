@@ -1,15 +1,16 @@
 /* global moment:false */
 
-import { config } from './index.config';
-import { routerConfig } from './index.route';
-import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { NavbarDirective } from './components/navbar/navbar.directive';
-import { AdminHeaderDirective } from './components/adminheader/adminheader.directive';
-import { SidebarDirective } from './components/sidebar/sidebar.directive';
-import { GridDirective } from './components/grid/grid.directive';
-import { MainContainerDirective } from './components/maincontainer/maincontainer.directive.js';
-import { OperationsDirective } from './components/operations/operations.directive.js';
+import {config} from './index.config';
+import {routerConfig} from './index.route';
+import {runBlock} from './index.run';
+import {MainController} from './main/main.controller';
+import {NavbarDirective} from './components/navbar/navbar.directive';
+import {AdminHeaderDirective} from './components/adminheader/adminheader.directive';
+import {SidebarDirective} from './components/sidebar/sidebar.directive';
+import {TaskGridDirective} from './components/grid/taskgrid.directive';
+import {TestGridDirective} from './components/grid/testgrid.directive';
+import {MainContainerDirective} from './components/maincontainer/maincontainer.directive.js';
+import {OperationsDirective} from './components/operations/operations.directive.js';
 import {dataHandler} from './services/dataHandler';
 
 angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap'])
@@ -21,7 +22,8 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('navbar', NavbarDirective)
   .directive('adminheader', AdminHeaderDirective)
   .directive('sidebar', SidebarDirective)
-  .directive('grid', GridDirective)
+  .directive('taskgrid', TaskGridDirective)
+  .directive('testgrid', TestGridDirective)
   .directive('operations', OperationsDirective)
   .directive('maincontainer', MainContainerDirective)
   .service('dataHandler', ['$http', dataHandler]);

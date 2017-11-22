@@ -1,0 +1,20 @@
+<table>
+  <thead>
+  <tr>
+    <th ng-repeat="item in tm.headerItems">
+      <span class="header-item">{{item}}</span>
+      <span class="sorting-icon"></span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="test in tm.tests">
+    <td class="test-property" test-property="test-id">{{test.id}}</td>
+    <td class="test-property" test-property="test-title">{{test.title}}</td>
+    <td class="test-property" test-property="test-questions">{{test.questions.join(', ')}}</td>
+    <!--<td class="delete-icon"></td>-->
+  </tr>
+  </tbody>
+</table>
+
+

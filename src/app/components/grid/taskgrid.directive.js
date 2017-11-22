@@ -1,10 +1,10 @@
-export function GridDirective() {
+export function TaskGridDirective() {
   'ngInject';
 
   let directive = {
     restrict: 'E',
-    templateUrl: 'app/components/grid/grid.html',
-    controller: GridController,
+    templateUrl: 'app/components/grid/taskgrid.html',
+    controller: TaskGridController,
     controllerAs: 'gm',
     bindToController: true,
     require: 'dataHandler'
@@ -13,18 +13,14 @@ export function GridDirective() {
   return directive;
 }
 
-class GridController {
+class TaskGridController {
   constructor (dataHandler) {
     'ngInject';
 
     this.headerItems = dataHandler.getHeaderItems('tasks');
-    // this.tasks = dataHandler.getAllData('tasks');
     dataHandler.getAllData('tasks').then(tasks => {
-      console.log(tasks.data);
-      console.log('1', tasks[0]);
       this.tasks = tasks.data;
     });
-
   }
 
 }

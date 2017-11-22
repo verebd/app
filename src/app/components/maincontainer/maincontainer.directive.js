@@ -13,8 +13,14 @@ export function MainContainerDirective() {
 }
 
 class MainContainerController {
-  constructor () {
+  constructor ($location) {
     'ngInject';
+
+    this.getGridToShow = activeTabName => {
+      let currentTab = $location.url();
+      return currentTab === activeTabName;
+    }
+
   }
 
 }

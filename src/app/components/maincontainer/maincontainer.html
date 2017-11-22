@@ -1,4 +1,5 @@
 <div class="main-container">
   <operations></operations>
-  <grid></grid>
+  <taskgrid ng-show="mc.getGridToShow('/tasks')"></taskgrid>
+  <testgrid ng-show="mc.getGridToShow('/tests')"></testgrid>
 </div>

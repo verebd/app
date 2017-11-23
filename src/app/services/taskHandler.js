@@ -9,10 +9,10 @@ export function taskHandler($http) {
   };
 
   this.addNewTask = () => {
-    $http.get('/api/tasks').success(data => {
+    return $http.get('/api/tasks').success(data => {
       this.newTask['id'] = data.length + 1;
     }).then(() => {
-      $http.post('/api/tasks', this.newTask);
+      return $http.post('/api/tasks', this.newTask);
     });
   }
 }

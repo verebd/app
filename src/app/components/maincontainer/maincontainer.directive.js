@@ -18,6 +18,7 @@ class MainContainerController {
 
     this.getGridToShow = activeTabName => {
       let currentTab = $location.url();
+      console.log('currt', currentTab);
       return currentTab === activeTabName;
     }
 

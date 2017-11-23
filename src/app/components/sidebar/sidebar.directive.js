@@ -18,7 +18,7 @@ class SidebarController {
 
     this.isTabSelected = checkTab => {
       let url = $location.url();
-      let rx = /^\/(.+)$/;
+      let rx = /^\/([^\/][a-zA-Z0-9]+)(\/.+)?$/;
       let token = url.match(rx);
       return token[1] === checkTab;
     };

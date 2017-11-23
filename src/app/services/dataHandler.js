@@ -28,4 +28,5 @@ export function dataHandler($http) {
     });
     return questions;
   };
+
 }

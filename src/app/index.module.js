@@ -11,7 +11,9 @@ import {TaskGridDirective} from './components/grid/taskgrid.directive';
 import {TestGridDirective} from './components/grid/testgrid.directive';
 import {MainContainerDirective} from './components/maincontainer/maincontainer.directive.js';
 import {OperationsDirective} from './components/operations/operations.directive.js';
+import {NewTaskDirective} from './components/newtask/newtask.directive.js';
 import {dataHandler} from './services/dataHandler';
+import {taskHandler} from './services/taskHandler';
 
 angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap'])
   .constant('moment', moment)
@@ -26,4 +28,6 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('testgrid', TestGridDirective)
   .directive('operations', OperationsDirective)
   .directive('maincontainer', MainContainerDirective)
-  .service('dataHandler', ['$http', dataHandler]);
+  .directive('newtask', NewTaskDirective)
+  .service('dataHandler', ['$http', dataHandler])
+  .service('taskHandler', ['$http', taskHandler]);

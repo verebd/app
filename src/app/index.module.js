@@ -12,6 +12,7 @@ import {TestGridDirective} from './components/grid/testgrid.directive';
 import {MainContainerDirective} from './components/maincontainer/maincontainer.directive.js';
 import {OperationsDirective} from './components/operations/operations.directive.js';
 import {NewTaskDirective} from './components/newtask/newtask.directive.js';
+import {NewTestDirective} from './components/newtest/newtest.directive.js';
 import {dataHandler} from './services/dataHandler';
 import {taskHandler} from './services/taskHandler';
 
@@ -29,5 +30,6 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('operations', OperationsDirective)
   .directive('maincontainer', MainContainerDirective)
   .directive('newtask', NewTaskDirective)
+  .directive('newtest', NewTestDirective)
   .service('dataHandler', ['$http', dataHandler])
   .service('taskHandler', ['$http', taskHandler]);

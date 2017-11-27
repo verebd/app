@@ -1,12 +1,12 @@
 <div class="new-task">
-  <form>
+  <form name="newTaskForm">
     <div class="general-wrapper">
       <div class="new-task-header">Create new task</div>
       <div class="task-type">
         <label for="types">
           Task type
         </label>
-        <select id="types" ng-model="ntc.newTask.type" required>
+        <select id="types" ng-model="ntc.newTask.type" ng-change="ntc.changeProperties(); ntc.isFormValid()">
           <option value="" selected="selected">Select a task type</option>
           <option value="multiple-choice">multiple-choice</option>
           <option value="open">open</option>
@@ -16,13 +16,14 @@
         <label for="topic">
           Topic
         </label>
-        <input id="topic" type="text" ng-model="ntc.newTask.topic" placeholder="Enter the topic of the task" required/>
+        <input id="topic" type="text" ng-model="ntc.newTask.topic" placeholder="Enter the topic of the task"
+               ng-change="ntc.isFormValid()" required/>
       </div>
       <div class="task-difficulty">
         <label for="difficulty">
           Difficulty
         </label>
-        <select id="difficulty" ng-model="ntc.newTask.difficulty" required>
+        <select id="difficulty" ng-model="ntc.newTask.difficulty" ng-change="ntc.isFormValid()" required>
           <option value="" selected="selected">Select a difficulty level</option>
           <option value="easy">easy</option>
           <option value="medium">medium</option>
@@ -33,7 +34,8 @@
         <label for="question">
           Question text
         </label>
-        <input id="question" type="text" ng-model="ntc.newTask.text" placeholder="Enter the question text" required/>
+        <input id="question" type="text" ng-model="ntc.newTask.text" ng-change="ntc.isFormValid()"
+               placeholder="Enter the question text" required/>
       </div>
     </div>
     <div class="multiple-choice-wrapper" ng-show="ntc.newTask.type === 'multiple-choice'">
@@ -41,26 +43,30 @@
         <span>Options</span>
         <div class="option">
           <label for="optionA">A</label>
-          <input id="optionA" type="text" ng-model="ntc.newTask.options[0]" placeholder="Enter the A option" required/>
+          <input id="optionA" type="text" ng-model="ntc.newTask.options[0]" ng-change="ntc.isFormValid()"
+                 placeholder="Enter the A option" required/>
         </div>
         <div class="option">
           <label for="optionB">B</label>
-          <input id="optionB" type="text" ng-model="ntc.newTask.options[1]" placeholder="Enter the B option" required/>
+          <input id="optionB" type="text" ng-model="ntc.newTask.options[1]" ng-change="ntc.isFormValid()"
+                 placeholder="Enter the B option" required/>
         </div>
         <div class="option">
           <label for="optionC">C</label>
-          <input id="optionC" type="text" ng-model="ntc.newTask.options[2]" placeholder="Enter the C option" required/>
+          <input id="optionC" type="text" ng-model="ntc.newTask.options[2]" ng-change="ntc.isFormValid()"
+                 placeholder="Enter the C option" required/>
         </div>
         <div class="option">
           <label for="optionD">D</label>
-          <input id="optionD" type="text" ng-model="ntc.newTask.options[3]" placeholder="Enter the D option" required/>
+          <input id="optionD" type="text" ng-model="ntc.newTask.options[3]" ng-change="ntc.isFormValid()"
+                 placeholder="Enter the D option" required/>
         </div>
       </div>
       <div class="task-solution">
         <label for="solution">
           Answer
         </label>
-        <select id="solution" ng-model="ntc.newTask.solution" required>
+        <select id="solution" ng-model="ntc.newTask.solution" ng-change="ntc.isFormValid()" required>
           <option value="" selected="selected">Select the correct answer</option>
           <option value="A">A</option>
           <option value="B">B</option>

@@ -1,0 +1,30 @@
+@mixin button($height, $width) {
+  background-color: white;
+  border: 1px solid #d1d5d4;
+  height: $height;
+  width: $width;
+  border-radius: 3px;
+  color: #665c5a;
+}
+.new-test {
+  button.select-questions {
+    margin-top: 2%;
+    @include button(35px, 164px);
+  }
+  th {
+    width: 20%;
+    text-align: center;
+  }
+  td {
+    vertical-align: middle;
+    select {
+      //position: relative;
+      width: 80%;
+      margin-left: 10%;
+    }
+    button.add-selection {
+      @include button(30px, 80%);
+      margin-left: 10%;
+    }
+  }
+}

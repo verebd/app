@@ -46,6 +46,10 @@ class OperationsController {
       }
     };
 
+    this.isTaskReadyForSave = () => {
+      return taskHandler.newTaskValidity;
+    };
+
     this.saveTask = () => {
       return taskHandler.addNewTask().then(() => {
         $location.path("/tasks");

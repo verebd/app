@@ -1,0 +1,42 @@
+<div class="new-test">
+  <button class="select-questions" ng-click="ntec.addGroup()">Select questions</button>
+  <table>
+    <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Difficulty</th>
+      <th>Type</th>
+      <th>Number of questions</th>
+      <th>Confirm selection</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="group in ntec.tempGroups">
+      <td>
+        <select class="select-topic">
+          <option ng-repeat="topic in ntec.topics" value="{{topic}}">{{topic}}</option>
+        </select>
+      </td>
+      <td>
+        <select class="select-difficulty">
+          <option value="easy">easy</option>
+          <option value="medium">medium</option>
+          <option value="advanced">advanced</option>
+        </select>
+      </td>
+      <td>
+        <select class="select-type">
+          <option value="multiple-choice">multiple-choice</option>
+          <option value="open">open</option>
+        </select>
+      </td>
+      <td>
+        <input type="number" min="1"/>
+      </td>
+      <td>
+        <button type="submit" class="add-selection">Add selection</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

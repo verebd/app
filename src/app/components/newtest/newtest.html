@@ -11,30 +11,33 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="group in ntec.tempGroups">
+    <tr ng-repeat="group in ntec.taskGroups track by $index">
       <td>
-        <select class="select-topic">
+        <select class="select-topic" ng-model="ntec.taskGroups[$index]['topic']">
+          <option value="" selected="selected">Select a topic</option>
           <option ng-repeat="topic in ntec.topics" value="{{topic}}">{{topic}}</option>
         </select>
       </td>
       <td>
-        <select class="select-difficulty">
+        <select class="select-difficulty" ng-model="ntec.taskGroups[$index]['difficulty']">
+          <option value="" selected="selected">Select a difficulty level</option>
           <option value="easy">easy</option>
           <option value="medium">medium</option>
           <option value="advanced">advanced</option>
         </select>
       </td>
       <td>
-        <select class="select-type">
+        <select class="select-type" ng-model="ntec.taskGroups[$index]['type']">
+          <option value="" selected="selected">Select a task type</option>
           <option value="multiple-choice">multiple-choice</option>
           <option value="open">open</option>
         </select>
       </td>
       <td>
-        <input type="number" min="1"/>
+        <input type="number" min="1" ng-model="ntec.taskGroups[$index]['number']"/>
       </td>
       <td>
-        <button type="submit" class="add-selection">Add selection</button>
+        <button class="add-selection" ng-click="ntec.submitTaskGroup(ntec.taskGroups[$index])">Add selection</button>
       </td>
     </tr>
     </tbody>

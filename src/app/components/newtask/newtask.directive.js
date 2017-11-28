@@ -14,7 +14,7 @@ export function NewTaskDirective() {
 }
 
 class NewTaskController {
-  constructor(taskHandler, $scope) {
+  constructor(taskHandler) {
     'ngInject';
 
     this.newTask = {};

@@ -1,0 +1,66 @@
+@mixin size($width, $height, $position: relative) {
+  position: $position;
+  width: $width;
+  height: $height;
+}
+
+@mixin border($style, $width, $color, $side: bottom) {
+  border-#{$side}: $style $width $color;
+}
+
+nav {
+  @include size(110px, 100%, fixed);
+  background-color: #665c5a;
+  display: block;
+  box-sizing: border-box;
+  .logo {
+    @include border(solid, 1px, rgb(53, 53, 54));
+    height: 50px;
+    background: url("/../assets/images/icons8-test-passed.png") center no-repeat #8baddc;
+    background-size: contain;
+  }
+  ul {
+    @include size(100%, 80%);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      @include size(100%, 20%);
+      @include border(solid, 1px, rgb(53, 53, 54));
+      display: block;
+      color: #e7efeb;
+      &.active {
+        background-color: #363737;
+        & span {
+          color: #8baddc;
+        }
+      }
+      a > span {
+        color: #e7efeb;
+        text-align: center;
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 40%;
+        bottom: 50%;
+        left: 0;
+        right: 0;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

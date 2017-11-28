@@ -1,0 +1,18 @@
+.operations {
+  position: relative;
+  width: 100%;
+  margin-top: 5%;
+  button {
+    margin-left: auto;
+    background-color: white;
+    border: 1px solid #d1d5d4;
+    height: 35px;
+    width: 80px;
+    border-radius: 3px;
+    color: #665c5a;
+    &[disabled='disabled'] {
+      opacity: 0.7;
+    }
+  }
+}
+

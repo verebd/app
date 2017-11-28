@@ -1,0 +1,7 @@
+<div class="main-container">
+  <operations></operations>
+  <taskgrid ng-show="mc.getGridToShow('/tasks')"></taskgrid>
+  <testgrid ng-show="mc.getGridToShow('/tests')"></testgrid>
+  <newtask ng-show="mc.getGridToShow('/tasks/create-new-task')"></newtask>
+  <newtest ng-show="mc.getGridToShow('/tests/create-new-test')"></newtest>
+</div>

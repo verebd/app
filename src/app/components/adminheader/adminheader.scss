@@ -1,0 +1,19 @@
+@mixin fonts($size, $style: normal) {
+  font-family: Verdana;
+  font-size: $size;
+  font-weight: bold;
+  font-style: $style;
+  color: white;
+}
+header {
+  background-color: #8baddc;
+  height: 50px;
+  margin-left: 110px;
+  .dashboard {
+    @include fonts(25);
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 25%;
+  }
+}

@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <tr>
+    <th ng-repeat="item in gm.headerItems">
+      <span class="header-item">{{item}}</span>
+      <span class="sorting-icon"></span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="task in gm.tasks">
+    <td class="task-property" task-property="task-id">{{task.id}}</td>
+    <td class="task-property" task-property="task-text">{{task.text}}</td>
+    <td class="task-property" task-property="task-topic">{{task.topic}}</td>
+    <td class="task-property" task-property="task-difficulty">{{task.difficulty}}</td>
+    <td class="task-property" task-property="task-type">{{task.type}}</td>
+    <!--<td class="delete-icon"></td>-->
+  </tr>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,44 @@
+.new-task {
+  position: relative;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.new-task-header {
+  font-weight: normal;
+  font-size: large;
+  margin-bottom: 3%;
+}
+.multiple-choice-wrapper {
+  float: left;
+  width: 50%;
+}
+.general-wrapper {
+  @extend .multiple-choice-wrapper;
+}
+form div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.general-wrapper label {
+  display: inline-block;
+  font-weight: normal;
+  width: 50%;
+}
+.multiple-choice-wrapper label {
+  display: inline-block;
+  font-weight: 500;
+  width: 20%;
+}
+select {
+  width: 40%;
+  height: 30px;
+  display: inline-block;
+}
+input {
+  @extend select;
+  padding-left: 4px;
+}
+::-webkit-input-placeholder, ::-moz-placeholder, select > option[value=""] {
+  color: #D3D3D3;
+}

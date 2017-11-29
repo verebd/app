@@ -32,6 +32,8 @@ class NewTestController {
       groupConfig['type'] = null;
       groupConfig['number'] = null;
       groupConfig['submitted'] = false;
+      groupConfig['validity'] = null;
+      groupConfig['validityErrorMessage'] = null;
       this.taskGroups.push(groupConfig);
     };
 
@@ -74,13 +76,44 @@ class NewTestController {
       return selectedTasks;
     };
 
+    this.isSelectionGroupValid = group => {
+      let validity = !!group['topic'] && !!group['dificulty'] && !!group['type'] && !!group['number'];
+      console.log(group['topic']);
+      console.log(validity);
+      if (!validity){
+        group['validity'] = false;
+        group['validityErrorMessage'] = 'Please, fill in all fields in the row.';
+        return false;
+      }
+      let rx = /^\d+$/;
+      if (!group['number'].match(rx)){
+        group['validity'] = false;
+        group['validityErrorMessage'] = 'Please, type a whole number into the Number of questions field';
+        return false;
+      }
+      return true;
+    };
+
+    this.isThereEnoughAvailableTasks = (actualTaskCount, group)  => {
+      if (actualTaskCount < group['number']){
+        group['validity'] = false;
+        group['validityErrorMessage'] = `There is not enough question in for this selection. Please, change the number so that it should be at most ${properTasks.length}`;
+        return false;
+      }
+      return true;
+    };
+
     this.submitTaskGroup = group => {
+      this.isSelectionGroupValid(group);
       let properTasks = this.collectProperTasks(group);
+      this.isThereEnoughAvailableTasks(properTasks.length, group);
+      group['validity'] = true;
       let selectedTasks = this.getRandomTasks(properTasks, group['number'])
       selectedTasks.forEach(task => {
         this.deleteTask(task);
         this.newTest['tasks'].push(task);
       });
+      group['submitted'] = true;
     };
 
     dataHandler.getAllData('tasks').then(tasks => {

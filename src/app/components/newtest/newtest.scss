@@ -25,6 +25,9 @@
     .add-selection {
       @include button(30px, 80%);
       margin-left: 10%;
+      &[disabled='disabled'] {
+        opacity: 0.7;
+      }
     }
   }
 }

@@ -37,7 +37,8 @@
         <input type="number" min="1" ng-model="ntec.taskGroups[$index]['number']"/>
       </td>
       <td>
-        <button class="add-selection" ng-click="ntec.submitTaskGroup(ntec.taskGroups[$index])">Add selection</button>
+        <button class="add-selection" ng-click="ntec.submitTaskGroup(ntec.taskGroups[$index])" ng-disabled="ntec.taskGroups[$index]['submitted']">Add selection</button>
+        <span class="error-message" ng-show="ntec.taskGroups[$index]['validity'] === false">{{ntec.taskGroups[$index]['validityErrorMessage']}}</span>
       </td>
     </tr>
     </tbody>

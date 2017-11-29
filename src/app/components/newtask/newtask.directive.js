@@ -23,7 +23,7 @@ class NewTaskController {
     this.newTask['difficulty'] = null;
     this.newTask['topic'] = null;
     this.newTask['text'] = null;
-    this.validity;
+
     taskHandler.setNewTask(this.newTask);
     taskHandler.setNewTaskValidity(false);
 

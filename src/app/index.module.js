@@ -15,6 +15,7 @@ import {NewTaskDirective} from './components/newtask/newtask.directive.js';
 import {NewTestDirective} from './components/newtest/newtest.directive.js';
 import {dataHandler} from './services/dataHandler';
 import {taskHandler} from './services/taskHandler';
+import {testHandler} from './services/testHandler';
 
 angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap'])
   .constant('moment', moment)
@@ -32,4 +33,5 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.ro
   .directive('newtask', NewTaskDirective)
   .directive('newtest', NewTestDirective)
   .service('dataHandler', ['$http', dataHandler])
-  .service('taskHandler', ['$http', taskHandler]);
+  .service('taskHandler', ['$http', taskHandler])
+  .service('testHandler', ['$http', testHandler]);

@@ -7,14 +7,14 @@ export function NewTestDirective() {
     controller: NewTestController,
     controllerAs: 'ntec',
     bindToController: true,
-    require: 'taskHandler'
+    require: 'testHandler'
   };
 
   return directive;
 }
 
 class NewTestController {
-  constructor(dataHandler, taskHandler) {
+  constructor(dataHandler, taskHandler, testHandler) {
     'ngInject';
 
     this.newTest = {};
@@ -24,6 +24,9 @@ class NewTestController {
 
     this.availableTasks;
     this.taskGroups = [];
+    this.formErrorMessage = null;
+
+    testHandler.setNewTest(this.newTest);
 
     this.addGroup = () => {
       let groupConfig = {};
@@ -77,16 +80,13 @@ class NewTestController {
     };
 
     this.isSelectionGroupValid = group => {
-      let validity = !!group['topic'] && !!group['dificulty'] && !!group['type'] && !!group['number'];
-      console.log(group['topic']);
-      console.log(validity);
+      let validity = !!group['topic'] && !!group['difficulty'] && !!group['type'] && !!group['number'];
       if (!validity){
         group['validity'] = false;
         group['validityErrorMessage'] = 'Please, fill in all fields in the row.';
         return false;
       }
-      let rx = /^\d+$/;
-      if (!group['number'].match(rx)){
+      if (!Number.isInteger(group['number'])){
         group['validity'] = false;
         group['validityErrorMessage'] = 'Please, type a whole number into the Number of questions field';
         return false;
@@ -97,23 +97,34 @@ class NewTestController {
     this.isThereEnoughAvailableTasks = (actualTaskCount, group)  => {
       if (actualTaskCount < group['number']){
         group['validity'] = false;
-        group['validityErrorMessage'] = `There is not enough question in for this selection. Please, change the number so that it should be at most ${properTasks.length}`;
+        group['validityErrorMessage'] = `There is not enough question for this selection. Please, change the number so that it should be at most ${actualTaskCount}`;
         return false;
       }
       return true;
     };
 
     this.submitTaskGroup = group => {
-      this.isSelectionGroupValid(group);
+      if (!this.isSelectionGroupValid(group)) {
+        return false;
+      }
       let properTasks = this.collectProperTasks(group);
-      this.isThereEnoughAvailableTasks(properTasks.length, group);
+      if (!this.isThereEnoughAvailableTasks(properTasks.length, group)) {
+        return false;
+      }
       group['validity'] = true;
-      let selectedTasks = this.getRandomTasks(properTasks, group['number'])
+      let selectedTasks = this.getRandomTasks(properTasks, group['number']);
       selectedTasks.forEach(task => {
         this.deleteTask(task);
         this.newTest['tasks'].push(task);
       });
       group['submitted'] = true;
+    };
+
+    this.isFormValid = () => {
+      let validity = true;
+      validity = validity && !!this.newTest['title'];
+      validity = validity && !!this.newTest['options'].length;
+      testHandler.setNewTestValidity(validity);
     };
 
     dataHandler.getAllData('tasks').then(tasks => {

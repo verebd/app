@@ -1,5 +1,6 @@
 <div class="operations">
   <button ng-hide="oc.isCreatePage()" ng-click="oc.navigateToCreatePage()">Create</button>
-  <button ng-show="oc.isCreatePage()" ng-disabled="!oc.isTaskReadyForSave()" ng-click="oc.saveTask()">Save</button>
+  <button ng-show="oc.isCreateTaskPage()" ng-disabled="!oc.isTaskReadyForSave()" ng-click="oc.saveTask()">Save</button>
+  <button ng-show="oc.isCreateTestPage()" ng-disabled="!oc.isTestReadyForSave()" ng-click="oc.saveTest()">Save</button>
   <button ng-show="oc.isCreatePage()" ng-click="oc.navigateToGridPage()">Cancel</button>
 </div>

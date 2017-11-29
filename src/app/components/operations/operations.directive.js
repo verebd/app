@@ -14,12 +14,22 @@ export function OperationsDirective() {
 }
 
 class OperationsController {
-  constructor($location, taskHandler) {
+  constructor($location, taskHandler, testHandler) {
     'ngInject';
 
     this.isCreatePage = () => {
       let currentUrl = $location.url();
       return currentUrl.indexOf('create') > -1;
+    };
+
+    this.isCreateTaskPage = () => {
+      let currentUrl = $location.url();
+      return currentUrl.indexOf('create-new-task') > -1;
+    };
+
+    this.isCreateTestPage = () => {
+      let currentUrl = $location.url();
+      return currentUrl.indexOf('create-new-test') > -1;
     };
 
     this.navigateToCreatePage = () => {
@@ -50,9 +60,22 @@ class OperationsController {
       return taskHandler.newTaskValidity;
     };
 
+    this.isTestReadyForSave = () => {
+      let validity = true;
+      validity = validity && !!testHandler.getNewTest()['title'];
+      validity = validity && !!testHandler.getNewTest()['tasks'].length;
+      return validity;
+    };
+
     this.saveTask = () => {
       return taskHandler.addNewTask().then(() => {
         $location.path("/tasks");
+      });
+    };
+
+    this.saveTest = () => {
+      return testHandler.addNewTest().then(() => {
+        $location.path("/tests");
       });
     };
   }
